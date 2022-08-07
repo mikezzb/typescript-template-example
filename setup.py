@@ -22,6 +22,12 @@ def setup(name):
         f.truncate()
         json.dump(pkg, f, indent=2)
         f.write('\n')
+    with open('example/src/App.tsx', 'r+') as f:
+        data = f.read()
+        data = data.replace('my-package', name)
+        f.seek(0)
+        f.truncate()
+        f.write(data)
 
 name = input('Your package name: ')
 setup(name)
