@@ -5,7 +5,6 @@ from sys import argv
 def setup(name):
     with open('package.json', 'r+') as f:
         pkg = json.load(f)
-        print(pkg)
         pkg["name"] = name
         pkg["repository"] = f"https://github.com/mikezzb/{name}.git"
         f.seek(0)
