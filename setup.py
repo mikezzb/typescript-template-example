@@ -7,6 +7,7 @@ def setup(name):
         pkg = json.load(f)
         pkg["name"] = name
         pkg["repository"] = f"https://github.com/mikezzb/{name}.git"
+        del pkg["scripts"]["bootstrap"]
         f.seek(0)
         f.truncate()
         json.dump(pkg, f, indent=2)
