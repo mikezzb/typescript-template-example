@@ -1,11 +1,12 @@
 {
-  "name": "typescript-template",
+  "name": "my-package",
   "version": "1.0.0",
-  "main": "./lib/src/index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "build": "tsc",
-    "rebuild": "yarn clean && tsc",
-    "example-update": "cd example && yarn update-pkg",
+    "rebuild": "yarn clean && yarn build",
+    "example": "yarn --cwd example",
+    "eup": "yarn build && yarn example relink",
     "clean": "rm -rf ./lib/",
     "lint": "eslint ./src/ --fix",
     "prepare": "husky install",
@@ -14,8 +15,7 @@
     "test": "jest --coverage",
     "typecheck": "tsc --noEmit",
     "dev": "tsc-watch --onSuccess \"yarn example-update\"",
-    "example-start": "cd example && yarn start",
-    "install-all": "yarn install && yarn build && cd example && yarn install"
+    "bootstrap": "yarn && yarn build && yarn example"
   },
   "repository": "https://github.com/mikezzb/typescript-template.git",
   "author": "mikezzb <mikezhoudev@gmail.com>",
