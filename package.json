@@ -15,7 +15,8 @@
     "test": "jest --coverage",
     "typecheck": "tsc --noEmit",
     "dev": "tsc-watch --onSuccess \"yarn example-update\"",
-    "bootstrap": "yarn && yarn build && yarn example"
+    "clear": "yarn clean && rm -rf node_modules && cd example && rm -rf node_modules",
+    "bootstrap": "python setup.py && yarn && yarn build && yarn example && gc -am \"Chore: init package\""
   },
   "repository": "https://github.com/mikezzb/typescript-template.git",
   "author": "mikezzb <mikezhoudev@gmail.com>",
